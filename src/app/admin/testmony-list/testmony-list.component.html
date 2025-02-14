@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <app-side-bar></app-side-bar>
+
+        </div>
+        <div class="col-lg-9">
+
+            <!-- dashborad -->
+            <h3 class="text-center">Testimonials</h3>
+            <div class="table">
+                <table class="table">
+                    <thead>
+                      <tr>  <th>No</th>
+                        <th>name</th>
+                        <th>Email</th>
+                        <th>message</th>
+                        <th>status /action</th>
+                    </tr>
+                    
+                    </thead>
+    
+                    @for(msg of messages;track $index; let i=$index){
+                        
+                        <tbody>
+                          <tr>  
+                            <td>{{i+1}}</td>
+                            <td>{{msg.name}}</td>
+                            <td>{{msg.email}}</td>
+                            <td>{{msg.message}}</td>
+                            <td>
+                                @if(msg.status=="pending"){
+                                    <button (click)="updateStatus(msg._id,'Approved')" class="btn btn-success me-2"><i class="fa-solid fa-check"></i></button>
+                                    <button  (click)="updateStatus(msg._id,'reject')" class="btn btn-danger me-2"><i class="fa-solid fa-close"></i></button>
+
+                                }@else if(msg.status=='Approved')
+                                {
+                                    <button class=" btn btn-success">Approverd</button>
+                                }
+                                @else {
+                                    <button class=" btn btn-danger">Rejected</button>
+                                }
+
+                        
+                        </tr>
+                        </tbody>
+                    }
+                  
+                </table>
+               </div>
+
+            
+        </div>
+    </div>
+</div>

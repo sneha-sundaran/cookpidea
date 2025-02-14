@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <app-side-bar></app-side-bar>
+
+        </div>
+        <div class="col-lg-9">
+            <h3 class="text-center">Users List</h3>
+
+            <!-- dashborad -->
+           <div class="table">
+            <table class="table">
+                <thead>
+                  <tr>  <th>No</th>
+                    <th>name</th>
+                    <th>Email</th></tr>
+                
+                </thead>
+
+                @for(user of userList;track $index; let i=$index){
+                    
+                    <tbody>
+                      <tr>  
+                        <td>{{i+1}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td></tr>
+                    </tbody>
+                }
+              
+            </table>
+           </div>
+
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f8f9fa;">
+  
+    <!-- Login Header -->
+    <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 10px;">Login</h2>
+    <p style="font-size: 16px; color: #555;">More than 100 plus Recipes from around the world</p>
+  
+    <!-- Login Form -->
+    <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); width: 350px; text-align: center; margin-top: 20px;">
+      
+      <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <span style="font-size: 24px; font-weight: bold;">🎓 Cookpedia</span>
+      </h2>
+      
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <input type="email" name="email"formControlName="email" placeholder="E Mail" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" />
+        @if(loginForm.get('email')?.errors && loginForm.get('email')?.touched){
+          <div class="text-danger">  *is Invalid email</div>
+        }
+        <input name="password" type="password" formControlName="password" placeholder="Password" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" />
+        @if(loginForm.get('password')?.errors && loginForm.get('password')?.touched){
+          <div class="text-danger">  *is Invalid password</div>
+        }
+        <button type="submit" style="width: 100%; padding: 10px; border: none; background-color: #2d7b3d; color: white; font-size: 18px; border-radius: 5px; cursor: pointer; transition: 0.3s;">Login</button>
+      </form>
+  
+    </div>
+  </div>
+  
+<app-footer></app-footer>
+

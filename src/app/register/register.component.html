@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f8f9fa;">
+    <div style="display: flex; background: white; padding: 30px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); gap: 30px; max-width: 800px;">
+  
+      <!-- Left Side (Form) -->
+      <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); width: 350px; text-align: center;">
+        <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+          <span style="font-size: 24px; font-weight: bold;"> Cookpedia</span>
+        </h2>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <input type="text" 
+          name="username" formControlName="username"  placeholder="username" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" />
+     @if(registerForm.get('username')?.errors && registerForm.get('username')?.touched){
+        <div class="text-danger">  *is Invalid Username</div>
+      }
+
+      <!-- <input type="text" 
+      name="email" formControlName="username"  placeholder="username" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" />
+ @if(registerForm.get('username')?.errors && registerForm.get('username')?.touched){
+    <div class="text-danger">  *is Invalid Username</div>
+  } -->
+          <input   name="email" formControlName="email"  type="email" placeholder="EMail" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" />
+          @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched)
+          {
+            <div class="text-danger">  *is Invalid Username</div>
+          }
+          <input type="password" 
+          name="password" formControlName="password" placeholder="Password" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" />
+          @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched){
+            <div class="text-danger">  *is Invalid Username</div>
+          }
+          <button class="bg-success" type="submit" style="width: 100%; padding: 10px; border: none; color: white; font-size: 18px; border-radius: 5px; cursor: pointer; transition: 0.3s;">Register</button>
+        </form>
+      </div>
+  
+      <!-- Right Side (Info Section) -->
+      <div style="width: 350px;">
+        <h2 style="font-size: 24px; font-weight: bold;">Create New Account</h2>
+        <p style="font-size: 18px; font-weight: 500;">What you will get?</p>
+        <ul style="list-style-type: disc; padding-left: 20px;">
+          <li style="font-size: 16px; margin: 5px 0;">Different Recipes</li>
+          <li style="font-size: 16px; margin: 5px 0;">Easy way to Make Recipe</li>
+          <li style="font-size: 16px; margin: 5px 0;">Save your Favorite Recipes</li>
+          <li style="font-size: 16px; margin: 5px 0;">Download your Recipes</li>
+        </ul>
+      </div>
+  
+    </div>
+  </div>
+  
+<app-footer></app-footer>

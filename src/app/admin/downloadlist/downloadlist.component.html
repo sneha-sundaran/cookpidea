@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <app-side-bar></app-side-bar>
+
+        </div>
+        <div class="col-lg-9">
+
+            <!-- dashborad -->
+           <div class="table">
+            <table class="table">
+                <thead>
+                  <tr>  
+                    
+                    <th>#</th>
+                    <th>Recipe Id</th>
+                    <th>Recipe Name</th>
+                    <th>Recipe Cuisine</th>
+                    <th>Recipe Download Count</th>
+                
+                </tr>
+                
+                </thead>
+
+                @for(recipes of downloadlist;track $index; let i=$index){
+                    
+                    <tbody>
+                      <tr>  
+                        <td>{{i+1}}</td>
+                        <td>{{recipes.recipeId}}</td>
+                        <td>{{recipes.recipeName}}</td>
+                        <td>{{recipes.recipeCuisine}}</td>
+                        <td>{{recipes.count}}</td></tr>
+                    </tbody>
+                }
+              
+            </table>
+           </div>
+
+            
+        </div>
+    </div>
+</div>

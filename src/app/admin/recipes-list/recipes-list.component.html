@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <app-side-bar></app-side-bar>
+
+        </div>
+        <div class="col-lg-9">
+
+
+            
+
+            <!-- dashborad -->
+            <h3 class="text-center my-5">All Recipes List</h3>
+            <div class="d-flex justify-content-between">
+                <button class="btn bg-primary" routerLink="/admin/Recipe-add">Add New Recipes</button>
+
+                <input type="text" [(ngModel)]="searchPip" class="form-control w-25" placeholder="Recipes searching here........ ">
+
+
+            </div>
+            <table class="table">
+                <thead>
+                   <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Cuisine</th>
+                    <th>....</th>
+                   </tr>
+                </thead>
+
+                <tbody>
+                    @for(recipe of allRecipes |search :searchPip; track $index ;let i=$index){
+
+
+
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{recipe.name}}</td>
+                            <td><img [src]="recipe.image" alt="" width="50"></td>
+                            <td>{{recipe.cuisine}}</td>
+                            <td class="d-flex">
+                                <button  class="btn"><i class="fa-solid fa-edit" routerLink="/admin/recipe/edit/{{recipe._id}}"></i></button>
+                                
+                                <button class="btn" (click)="deleteItem(recipe._id)"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+
+                        </tr>
+
+                    }
+
+                    <!-- @if((allRecipes | search :searchPip)) -->
+                </tbody>
+            </table>
+
+
+
+
+        </div>
+    </div>
+</div>

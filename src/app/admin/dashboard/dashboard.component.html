@@ -1,0 +1,95 @@
+<div class="dashbg">
+    <div class="row">
+       @if(isSidebarOpen){
+        <div class="col-lg-2">
+            <app-side-bar></app-side-bar>
+
+        </div>
+       }
+
+
+
+        <div [class]="colWidth">
+
+            <!-- dashborad -->
+          <div class="bg-warning text-light p-3 d-flex">
+            <h2> <button class="btn" (click)="menuButtonClick()"><i class="fa-solid fa-bars text-ligt fa-2x"></i></button> Welcome to admin Dashboard</h2>
+            <div class="dropd">
+                <button type="button" data-bs-toggle="dropdown"  class="btn dropdown-toggle text-light">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <ul class="dropdown-menu text-center">
+                    <i><button class="btn" (click)="logoutAdmin()">Logout</button></i>
+                </ul>
+            </div>
+
+          </div>
+
+          <!-- metrix -->
+
+          <div class="d-flex justify-content-evenly align-items-center my-5">
+            <div class="d-flex align-items-center p-3 rounded text-light bg-info">
+                <i class="fa-solid fa-users fa-3x me-3"></i>
+                <div>
+                    <h4>Users</h4>
+                    <h2>{{userCount}}</h2>
+                </div>
+            </div>
+
+            <!-- testmonial -->
+            <div class="d-flex align-items-center p-3 rounded text-light bg-warning">
+                <i class="fa-solid fa-message fa-3x me-3"></i>
+                <div>
+                    <h4>Testmonial</h4>
+                    <p> you have {{testmonialCount}} testmonial request</p>
+                </div>
+            </div>
+
+            <!-- download -->
+            <div class="d-flex align-items-center p-3 rounded text-light bg-info">
+                <i class="fa-solid fa-download fa-3x me-3"></i>
+                <div>
+                    <h4>download</h4>
+                    <h2>{{downloadCount}}</h2>
+                </div>
+            </div>
+            <!-- Recipes -->
+            <div class="d-flex align-items-center p-3 rounded text-light bg-danger">
+                <i class="fa-solid fa-bowl-food fa-3x me-3"></i>
+                <div>
+                    <h4>Recipes</h4>
+                    <h2>{{recipesCount}}</h2>
+                </div>
+            </div>
+          </div>
+
+
+            
+        
+        
+        <!-- chart and calender -->
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- chart -->
+                <highcharts-chart 
+                [Highcharts]="Highcharts"
+                [options]="chartOptions"
+              
+                style="width: 100%; height: 400px; display: block;"
+              ></highcharts-chart>
+
+            </div>
+            <div class="col-lg-4">
+                <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar [(selected)]="selected"></mat-calendar>
+                    
+                  </mat-card>
+                  
+                <!-- calender -->
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

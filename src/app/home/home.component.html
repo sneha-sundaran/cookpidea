@@ -1,0 +1,96 @@
+<app-header></app-header>
+<!-- landing position -->
+<div class="container  ">
+    <div class="row p-5 bg-success ">
+        <div class="col-lg-2 pt-5 pb-5"></div>
+        <div class="col-lg-4 text-light ">
+            <h1 style="   font-family:Great Vibes,serif; font-size: 45px;">The Easiest Way <br> To Make Your <br> Favorite Meal</h1>
+            <p style="font-size: 10px;">Discover 100+ recipes in Your hand with  the best recipes .Help you to <br>find the easiest way to cook</p>
+            <button class="btn" style="background-color: rgb(255, 255, 255); color: #000;">Explore Recipes</button>
+       
+        </div>
+        <div class="col-lg-6">
+            <!-- <link href="dinner-removebg-preview.png" alt=""> -->
+            <img style="margin-left: 180px;"  src="dinner-removebg-preview.png">
+        </div>
+    </div>
+
+<!-- all recipes -->
+ <div class="my-5  ">
+    <div class="row">
+        <div class="d-flex justify-content-between">
+           <div> <h1>Popular Recipes of the Weak</h1>
+            <h6>Our Most popular Recipes of the weak</h6></div>
+            <a href="" class="me-5">View All</a>
+        </div>
+      
+     <div class="row">
+         
+    
+@for(recipe of allRecipes;track $index){
+    <div class=" col-lg-4 p-3">
+        <img  class="card-img-top" style="height: 300px;" [src]="recipe.image" alt="">
+        <div class="card-body"><h5 class="mt-3">
+         {{recipe.name}}
+        </h5>
+    </div>
+    </div>
+}
+
+        </div>
+    </div>
+ </div>
+<!-- banner -->
+ <div class="banner" style="height: 500px;background-image: url('https://i.pinimg.com/736x/61/aa/46/61aa46d9916df3b35282da93216483c4.jpg');background-size: cover;">
+    <div class="row my-3">
+        <div class="col-lg-6 "></div>
+        <div class="col-lg-6 ">
+            <div class="bg-light p-5 mt-5 me-3">
+                <h2>50+ Recipes that very <br>quick and  Fast</h2>
+                <p>find the perfect food ideas to start the day with quick and easiest</p>
+            </div>
+        </div>
+    </div>
+ </div>
+ <div class="row bg-success rounded align-items-center text-light p-5" style="height: 450px;">
+    <div class="col-lg-6">
+        <img src="https://i.postimg.cc/L5vrfcyy/Screenshot-2025-01-27-232008.png" alt="">
+
+        <!-- You can add more content here if needed -->
+    </div>
+    <div class="col-lg-6 text-center">
+        <h1>Download App</h1>
+        <p class="mt-4">
+            Download the app from the store or <br> Google Play for a better experience.
+        </p>
+        <div class="d-flex justify-content-center mt-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png" 
+                 height="40px" width="200px" alt="Google Play Store" class="mx-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" 
+                 height="40px" width="200px" alt="App Store" class="mx-3">
+        </div>
+    </div>
+</div>
+
+<!-- testmoniya -->
+
+<div class="text-center my-5">
+    <h1>Client Testmonials</h1>
+    <marquee >
+        <div class="d-flex " >
+
+            @for(msg of feedbacklist;track $index )
+            {
+
+                <div class="rounded border  p-3 me-2 " style="height: 400px;width: 400px;">
+                    <h5>{{msg.name}}</h5>
+                    <p class=" text-align-justify" style="white-space: normal;width: 100%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui quaerat incidunt aspernatur molestias repudiandae cupiditate harum cumque itaque consequatur nam. Consectetur totam ea suscipit optio aut iste pariatur atque iure.</p>
+                </div>
+            }
+          
+        </div>
+    </marquee>
+</div>
+
+</div>
+<app-footer></app-footer>
